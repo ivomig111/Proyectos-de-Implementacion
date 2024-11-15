@@ -1,0 +1,60 @@
+<!--calculadora edad canina--> 
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Edad Canina</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input {
+            padding: 8px;
+            font-size: 16px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculadora de Edad Canina</h1>
+    
+    <label for="edad-perro">Edad del perro (en años):</label>
+    <input type="number" id="edad-perro" placeholder="Ingresa la edad del perro">
+    
+    <button onclick="calcularEdadHumana()">Calcular Edad Humana</button>
+    
+    <div id="resultado" class="result"></div>
+    
+    <script>
+        function calcularEdadHumana() {
+            // Obtener la edad del perro ingresada por el usuario
+            const edadPerro = parseFloat(document.getElementById('edad-perro').value) || 0;
+            
+            // Calcular la edad del perro en años humanos (multiplicando por 7)
+            const edadHumana = edadPerro * 7;
+            
+            // Mostrar el resultado en el div con id "resultado"
+            document.getElementById('resultado').innerText = `La edad del perro en años humanos es ${edadHumana} años.`;
+        }
+    </script>
+</body>
+</html>

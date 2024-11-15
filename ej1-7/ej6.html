@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Secuencia Fibonacci</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input {
+            padding: 8px;
+            font-size: 16px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Generador de Secuencia Fibonacci</h1>
+    
+    <label for="num-terminos">Inserta el número de términos de la secuencia Fibonacci:</label>
+    <input type="number" id="num-terminos" placeholder="Ingresa el número de términos" step="1" min="1">
+    
+    <button onclick="generarFibonacci()">Generar Secuencia Fibonacci</button>
+    
+    <div id="resultado" class="result"></div>
+    
+    <script>
+        function generarFibonacci() {
+            // Obtener el número de términos ingresado por el usuario
+            const numTerminos = parseInt(document.getElementById('num-terminos').value) || 0;
+            
+            // Verificar que el número de términos sea válido
+            if (numTerminos <= 0) {
+                document.getElementById('resultado').innerText = 'Por favor, ingresa un número mayor que 0.';
+                return;
+            }
+            
+            // Calcular la secuencia de Fibonacci
+            const secuencia = [];
+            for (let i = 0; i < numTerminos; i++) {
+                if (i === 0) {
+                    secuencia.push(0);
+                } else if (i === 1) {
+                    secuencia.push(1);
+                } else {
+                    const siguiente = secuencia[i - 1] + secuencia[i - 2];
+                    secuencia.push(siguiente);
+                }
+            }
+            
+            // Mostrar el resultado en el div con id "resultado"
+            document.getElementById('resultado').innerText = `Los primeros ${numTerminos} términos de la secuencia Fibonacci son: ${secuencia.join(', ')}.`;
+        }
+    </script>
+</body>
+</html>

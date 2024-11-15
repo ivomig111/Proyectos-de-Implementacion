@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Números Primos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input {
+            padding: 8px;
+            font-size: 16px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Generador de Números Primos</h1>
+    
+    <label for="numero1">Inserta el primer número:</label>
+    <input type="number" id="numero1" placeholder="Ingresa el primer número" step="1">
+    
+    <label for="numero2">Inserta el segundo número:</label>
+    <input type="number" id="numero2" placeholder="Ingresa el segundo número" step="1">
+    
+    <button onclick="generarNumerosPrimos()">Generar Números Primos</button>
+    
+    <div id="resultado" class="result"></div>
+    
+    <script>
+        function esPrimo(num) {
+            if (num <= 1) return false; // Números menores o iguales a 1 no son primos
+            if (num <= 3) return true; // 2 y 3 son primos
+            if (num % 2 === 0 || num % 3 === 0) return false; // Eliminar múltiplos de 2 y 3
+            for (let i = 5; i * i <= num; i += 6) {
+                if (num % i === 0 || num % (i + 2) === 0) return false;
+            }
+            return true;
+        }
+
+        function generarNumerosPrimos() {
+            // Obtener los dos números ingresados por el usuario
+            const num1 = parseInt(document.getElementById('numero1').value) || 0;
+            const num2 = parseInt(document.getElementById('numero2').value) || 0;
+            
+            // Verificar que el primer número no sea mayor que el segundo
+            if (num1 > num2) {
+                document.getElementById('resultado').innerText = 'El primer número debe ser menor o igual que el segundo número.';
+                return;
+            }
+            
+            // Encontrar números primos en el rango [num1, num2]
+            const primos = [];
+            for (let i = num1; i <= num2; i++) {
+                if (esPrimo(i)) {
+                    primos.push(i);
+                }
+            }
+            
+            // Mostrar el resultado en el div con id "resultado"
+            document.getElementById('resultado').innerText = `Los números primos entre ${num1} y ${num2} son: ${primos.join(', ')}.`;
+        }
+    </script>
+</body>
+</html>

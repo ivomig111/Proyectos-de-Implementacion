@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Temperatura</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input, select {
+            padding: 8px;
+            font-size: 16px;
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Conversor de Temperatura</h1>
+    
+    <label for="conversion-type">¿Qué tipo de conversión deseas realizar?</label>
+    <select id="conversion-type">
+        <option value="1">Celsius a Fahrenheit</option>
+        <option value="2">Fahrenheit a Celsius</option>
+    </select>
+    
+    <label for="temperatura">Inserta la temperatura:</label>
+    <input type="number" id="temperatura" placeholder="Ingresa la temperatura" step="any">
+    
+    <button onclick="convertirTemperatura()">Convertir</button>
+    
+    <div id="resultado" class="result"></div>
+    
+    <script>
+        function convertirTemperatura() {
+            // Obtener el tipo de conversión y la temperatura ingresada por el usuario
+            const tipoConversion = document.getElementById('conversion-type').value;
+            const temperatura = parseFloat(document.getElementById('temperatura').value);
+            
+            // Verificar que la temperatura ingresada sea un número válido
+            if (isNaN(temperatura)) {
+                document.getElementById('resultado').innerText = 'Por favor, ingresa una temperatura válida.';
+                return;
+            }
+            
+            let resultado;
+            if (tipoConversion === "1") {
+                // Convertir de Celsius a Fahrenheit
+                resultado = (temperatura * 9/5) + 32;
+                document.getElementById('resultado').innerText = `${temperatura} grados Celsius equivalen a ${resultado.toFixed(2)} grados Fahrenheit.`;
+            } else if (tipoConversion === "2") {
+                // Convertir de Fahrenheit a Celsius
+                resultado = (temperatura - 32) * 5/9;
+                document.getElementById('resultado').innerText = `${temperatura} grados Fahrenheit equivalen a ${resultado.toFixed(2)} grados Celsius.`;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f0f0f0;
+}
+h1 {
+    color: #003366;
+}
+.galeria {
+    display: grid;
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+.imagen {
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+.imagen img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.descripcion {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #333;
+}

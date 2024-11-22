@@ -1,0 +1,27 @@
+Preguntas de opción múltiple
+1. HTML
+o Pregunta: ¿Cuál de los siguientes elementos se usa para agregar un
+enlace en HTML?
+    a) <a>; 
+    b) <link>;
+    c) <href>;
+
+A. <a>.
+
+2. CSS
+o Pregunta: ¿Qué propiedad CSS se usa para cambiar el color de fondo de
+un elemento?
+    a) background-color 
+    b) color
+    c) fill
+
+A. background-color.
+
+3. JavaScript
+o Pregunta: ¿Qué método se utiliza para obtener un elemento HTML por
+su ID?
+    a) getElementByClassName()
+    b) getElementById()
+    c) querySelector()
+
+B. getElementById.
